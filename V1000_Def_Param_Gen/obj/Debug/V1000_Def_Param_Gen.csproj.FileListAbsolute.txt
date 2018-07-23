@@ -1,0 +1,12 @@
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\bin\Debug\V1000_Def_Param_Gen.exe.config
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\bin\Debug\V1000_Def_Param_Gen.exe
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\bin\Debug\V1000_Def_Param_Gen.pdb
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.csprojAssemblyReference.cache
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.csproj.ResolveComReference.cache
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.Properties.Resources.resources
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.csproj.GenerateResource.cache
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.csproj.CoreCompileInputs.cache
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.exe
+C:\Users\sferry\source\repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.pdb
+C:\Users\sferry\Source\Repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.frmProgReport.resources
+C:\Users\sferry\Source\Repos\V1000_Def_Param_Gen\V1000_Def_Param_Gen\obj\Debug\V1000_Def_Param_Gen.frmMain.resources
