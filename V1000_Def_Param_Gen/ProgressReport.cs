@@ -48,12 +48,12 @@ namespace V1000_Def_Param_Gen
         {
             switch (e.Mode_Sel)
             {
-                case ProgressEventArgs.xlReadMode: // Excel file read
-                    switch (e.xlRead_Stat)
+                case ProgressEventArgs.ListReadMode: // Excel file read
+                    switch (e.ListRead_Stat)
                     {
                         case 0x01:
-                            prgActionStatus.Value = e.xlRead_Progress;
-                            lblAction2Update.Text = "Reading item number " + e.xlRead_Unit.ToString() + " of " + e.xlRead_Total_Units.ToString();
+                            prgActionStatus.Value = e.ListRead_Progress;
+                            lblAction2Update.Text = "Reading item number " + e.ListRead_Unit.ToString() + " of " + e.ListRead_Total_Units.ToString();
                             break;
                         case 0x02:
                             ProgressComplete();
@@ -79,12 +79,12 @@ namespace V1000_Def_Param_Gen
                     }
                     break;
 
-                case ProgressEventArgs.xlWriteMode: // Excel file write
-                    switch (e.xlWrite_Stat)
+                case ProgressEventArgs.ListWriteMode: // Excel file write
+                    switch (e.ListWrite_Stat)
                     {
                         case 0x01:
-                            prgActionStatus.Value = e.xlRead_Progress;
-                            lblAction2Update.Text = "Writing item number " + e.xlWrite_Unit.ToString() + " of " + e.xlWrite_Total_Units.ToString();
+                            prgActionStatus.Value = e.ListRead_Progress;
+                            lblAction2Update.Text = "Writing item number " + e.ListWrite_Unit.ToString() + " of " + e.ListWrite_Total_Units.ToString();
                             break;
                         case 0x02:
                             ProgressComplete();
