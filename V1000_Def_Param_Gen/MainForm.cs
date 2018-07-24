@@ -18,6 +18,7 @@ namespace V1000_Def_Param_Gen
 {
     public partial class frmMain : Form
     {
+        #region global class object definitions
         // Create field for storing the VFD slave address setting
         byte SlaveAddress = 0xFF;
 
@@ -31,15 +32,16 @@ namespace V1000_Def_Param_Gen
 
         // Create VFD default parameter read objects 
         List<V1000_Param_Data> V1000_Vals = new List<V1000_Param_Data>();
-        int ParamReadCnt = 0;
-
+        
         // Create delegate for sending progress of an operation to the Progress Report form
         public delegate void SendProgress(object sender, ProgressEventArgs e);
         private ProgressEventArgs ProgressArgs = new ProgressEventArgs();
 
         // Create handling of VFD default parameter background worker read event handling
         public event SendProgress ProgressEvent;
+        #endregion
 
+        #region General Form Controls
         public frmMain()
         {
             InitializeComponent();
@@ -89,36 +91,7 @@ namespace V1000_Def_Param_Gen
         {
             spVFD.PortName = cmbSerialPort.GetItemText(cmbSerialPort.SelectedItem);
         }
-
-        private void bwrk_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            ProgressEvent?.Invoke(this, ProgressArgs);
-        }
-
-        private void Progress_Cancel_Clicked(object sender, ProgressCancelArgs e)
-        {
-            switch (e.ProgMode)
-            {
-                case 0x00:
-                    if (e.ReadCancel && bwrkReadParamListFile.IsBusy)
-                    {
-                        bwrkReadParamListFile.CancelAsync();
-                    }
-                    break;
-                case 0x01:
-                    if (e.ReadCancel && bwrkReadVFDVals.IsBusy)
-                    {
-                        bwrkReadVFDVals.CancelAsync();
-                    }
-                    break;
-                case 0x02:
-                    if (e.ReadCancel && bwrkWriteDefValFile.IsBusy)
-                    {
-                        bwrkWriteDefValFile.CancelAsync();
-                    }
-                    break;
-            }
-        }
+        #endregion
 
         #region V1000 Parameter Listing File Methods
         private void btnParamListBrowse_Click(object sender, EventArgs e)
@@ -148,6 +121,9 @@ namespace V1000_Def_Param_Gen
         {
             if (!bwrkReadParamListFile.IsBusy)
             {
+                // Clear all existing rows in the datagridview
+                dgvV1000ParamView.Rows.Clear();
+
                 // Reset all progress flags and start the list file read thread
                 ProgressArgs.ClearListReadVals();
                 ProgressArgs.Mode_Sel = ProgressEventArgs.ListReadMode;
@@ -158,6 +134,13 @@ namespace V1000_Def_Param_Gen
                 frmProgReport frmListFileRead = new frmProgReport("", "Data Read Progress:", "Cancel Data Read");
                 frmListFileRead.ProgressCancelUpdated += new frmProgReport.ProgressCancelHandler(Progress_Cancel_Clicked);
                 ProgressEvent += frmListFileRead.ProgressReceived;
+
+                // Set the progress form display location at the center of the main form.
+                int x = (this.DesktopBounds.X + (this.Width / 2)) - (frmListFileRead.DesktopBounds.Width / 2);
+                int y = (this.DesktopBounds.Y + (this.Height / 2)) - (frmListFileRead.DesktopBounds.Height / 2);
+                frmListFileRead.SetDesktopLocation(x, y);
+
+                // Show the form
                 frmListFileRead.Show();
 
                 btnReadParamList.Enabled = false;
@@ -290,6 +273,13 @@ namespace V1000_Def_Param_Gen
                 frmProgReport frmVFDReadProg = new frmProgReport("VFD Read Parameter:", "Data Read Progress", "Cancel VFD Read");
                 frmVFDReadProg.ProgressCancelUpdated += new frmProgReport.ProgressCancelHandler(Progress_Cancel_Clicked);
                 ProgressEvent += frmVFDReadProg.ProgressReceived;
+
+                // Set the progress form display location at the center of the main form.
+                int x = (this.DesktopBounds.X + (this.Width / 2)) - (frmVFDReadProg.DesktopBounds.Width / 2);
+                int y = (this.DesktopBounds.Y + (this.Height / 2)) - (frmVFDReadProg.DesktopBounds.Height / 2);
+                frmVFDReadProg.SetDesktopLocation(x, y);
+
+                // Show the form
                 frmVFDReadProg.Show();
 
                 btnReadVFDVals.Enabled = false; // disable the Read VFD button while a read is in progress.
@@ -404,6 +394,13 @@ namespace V1000_Def_Param_Gen
                 frmProgReport frmListFileWrite = new frmProgReport("", "Data Write Progress:", "Cancel Data Write");
                 frmListFileWrite.ProgressCancelUpdated += new frmProgReport.ProgressCancelHandler(Progress_Cancel_Clicked);
                 ProgressEvent += frmListFileWrite.ProgressReceived;
+
+                // Set the progress form display location at the center of the main form.
+                int x = (this.DesktopBounds.X + (this.Width / 2)) - (frmListFileWrite.DesktopBounds.Width / 2);
+                int y = (this.DesktopBounds.Y + (this.Height / 2)) - (frmListFileWrite.DesktopBounds.Height / 2);
+                frmListFileWrite.SetDesktopLocation(x, y);
+
+                // Show the form
                 frmListFileWrite.Show();
 
                 btnWriteDefValList.Enabled = false;
@@ -473,7 +470,54 @@ namespace V1000_Def_Param_Gen
         }
         #endregion
 
-        
+        private void bwrk_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            ProgressEvent?.Invoke(this, ProgressArgs);
+        }
+
+        private void Progress_Cancel_Clicked(object sender, ProgressCancelArgs e)
+        {
+            switch (e.ProgMode)
+            {
+                case 0x00:
+                    if (e.ReadCancel && bwrkReadParamListFile.IsBusy)
+                    {
+                        bwrkReadParamListFile.CancelAsync();
+                    }
+                    break;
+                case 0x01:
+                    if (e.ReadCancel && bwrkReadVFDVals.IsBusy)
+                    {
+                        bwrkReadVFDVals.CancelAsync();
+                    }
+                    break;
+                case 0x02:
+                    if (e.ReadCancel && bwrkWriteDefValFile.IsBusy)
+                    {
+                        bwrkWriteDefValFile.CancelAsync();
+                    }
+                    break;
+            }
+        }
+
+        private void btnVFDReset_Click(object sender, EventArgs e)
+        {
+            V1000_ModbusRTU_Comm comm = new V1000_ModbusRTU_Comm();
+            ModbusRTUMsg msg = new ModbusRTUMsg(0x1F);
+            ModbusRTUMaster modbus = new ModbusRTUMaster();
+            List<ushort> val = new List<ushort>();
+
+            msg.Clear();
+            val.Clear();
+            val.Add(2220);
+            msg = modbus.CreateMessage(msg.SlaveAddr, ModbusRTUMaster.WriteReg, 0x0103, 1, val);
+
+            comm.OpenCommPort(ref spVFD);
+            int status = comm.DataTransfer(ref msg, ref spVFD);
+            if (status != 0x0001)
+                MessageBox.Show("VFD Parameter Reset to Default Failure!!");
+            comm.CloseCommPort(ref spVFD);
+        }
     }
 
     public class ProgressEventArgs : EventArgs

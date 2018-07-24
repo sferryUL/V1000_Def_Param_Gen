@@ -83,7 +83,7 @@ namespace V1000_Def_Param_Gen
                     switch (e.ListWrite_Stat)
                     {
                         case 0x01:
-                            prgActionStatus.Value = e.ListRead_Progress;
+                            prgActionStatus.Value = e.ListWrite_Progress;
                             lblAction2Update.Text = "Writing item number " + e.ListWrite_Unit.ToString() + " of " + e.ListWrite_Total_Units.ToString();
                             break;
                         case 0x02:

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSlaveAddr = new System.Windows.Forms.TextBox();
             this.lblSlaveAddr = new System.Windows.Forms.Label();
             this.grpCommSettings = new System.Windows.Forms.GroupBox();
@@ -52,6 +52,7 @@
             this.bwrkReadVFDVals = new System.ComponentModel.BackgroundWorker();
             this.lblParamView = new System.Windows.Forms.Label();
             this.grpInFileSettings = new System.Windows.Forms.GroupBox();
+            this.btnVFDReset = new System.Windows.Forms.Button();
             this.btnReadParamList = new System.Windows.Forms.Button();
             this.txtParamListFile = new System.Windows.Forms.TextBox();
             this.btnBrowseParamList = new System.Windows.Forms.Button();
@@ -164,9 +165,9 @@
             // cmRegAddr
             // 
             this.cmRegAddr.DataPropertyName = "RegAddress";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cmRegAddr.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmRegAddr.DefaultCellStyle = dataGridViewCellStyle1;
             this.cmRegAddr.HeaderText = "Parameter Address";
             this.cmRegAddr.Name = "cmRegAddr";
             this.cmRegAddr.ReadOnly = true;
@@ -176,9 +177,9 @@
             // cmParamNum
             // 
             this.cmParamNum.DataPropertyName = "ParamNum";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cmParamNum.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmParamNum.DefaultCellStyle = dataGridViewCellStyle2;
             this.cmParamNum.HeaderText = "Parameter Number";
             this.cmParamNum.Name = "cmParamNum";
             this.cmParamNum.ReadOnly = true;
@@ -189,8 +190,8 @@
             // 
             this.cmParmName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cmParmName.DataPropertyName = "ParamName";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.cmParmName.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.cmParmName.DefaultCellStyle = dataGridViewCellStyle3;
             this.cmParmName.HeaderText = "Parameter Name";
             this.cmParmName.Name = "cmParmName";
             this.cmParmName.ReadOnly = true;
@@ -198,9 +199,9 @@
             // cmDefVal
             // 
             this.cmDefVal.DataPropertyName = "DefVal";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cmDefVal.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmDefVal.DefaultCellStyle = dataGridViewCellStyle4;
             this.cmDefVal.HeaderText = "Default Value";
             this.cmDefVal.Name = "cmDefVal";
             this.cmDefVal.ReadOnly = true;
@@ -209,9 +210,9 @@
             // cmVFDVal
             // 
             this.cmVFDVal.DataPropertyName = "VFDVal";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cmVFDVal.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmVFDVal.DefaultCellStyle = dataGridViewCellStyle5;
             this.cmVFDVal.HeaderText = "VFD Value";
             this.cmVFDVal.Name = "cmVFDVal";
             this.cmVFDVal.ReadOnly = true;
@@ -220,7 +221,6 @@
             // 
             // btnReadVFDVals
             // 
-            this.btnReadVFDVals.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnReadVFDVals.Enabled = false;
             this.btnReadVFDVals.Location = new System.Drawing.Point(647, 44);
             this.btnReadVFDVals.Name = "btnReadVFDVals";
@@ -249,6 +249,7 @@
             // 
             // grpInFileSettings
             // 
+            this.grpInFileSettings.Controls.Add(this.btnVFDReset);
             this.grpInFileSettings.Controls.Add(this.btnReadParamList);
             this.grpInFileSettings.Controls.Add(this.txtParamListFile);
             this.grpInFileSettings.Controls.Add(this.btnBrowseParamList);
@@ -261,9 +262,18 @@
             this.grpInFileSettings.TabStop = false;
             this.grpInFileSettings.Text = "Paramet List File Settings";
             // 
+            // btnVFDReset
+            // 
+            this.btnVFDReset.Location = new System.Drawing.Point(485, 43);
+            this.btnVFDReset.Name = "btnVFDReset";
+            this.btnVFDReset.Size = new System.Drawing.Size(156, 23);
+            this.btnVFDReset.TabIndex = 39;
+            this.btnVFDReset.Text = "Reset VFD to Default";
+            this.btnVFDReset.UseVisualStyleBackColor = true;
+            this.btnVFDReset.Click += new System.EventHandler(this.btnVFDReset_Click);
+            // 
             // btnReadParamList
             // 
-            this.btnReadParamList.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnReadParamList.Enabled = false;
             this.btnReadParamList.Location = new System.Drawing.Point(728, 15);
             this.btnReadParamList.Name = "btnReadParamList";
@@ -283,7 +293,6 @@
             // 
             // btnBrowseParamList
             // 
-            this.btnBrowseParamList.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnBrowseParamList.Location = new System.Drawing.Point(647, 15);
             this.btnBrowseParamList.Name = "btnBrowseParamList";
             this.btnBrowseParamList.Size = new System.Drawing.Size(75, 23);
@@ -303,7 +312,6 @@
             // 
             // btnBrowseDefValList
             // 
-            this.btnBrowseDefValList.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnBrowseDefValList.Location = new System.Drawing.Point(653, 22);
             this.btnBrowseDefValList.Name = "btnBrowseDefValList";
             this.btnBrowseDefValList.Size = new System.Drawing.Size(75, 23);
@@ -346,7 +354,6 @@
             // 
             // btnWriteDefValList
             // 
-            this.btnWriteDefValList.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnWriteDefValList.Enabled = false;
             this.btnWriteDefValList.Location = new System.Drawing.Point(734, 22);
             this.btnWriteDefValList.Name = "btnWriteDefValList";
@@ -423,6 +430,7 @@
         private System.Windows.Forms.Button btnReadParamList;
         private System.Windows.Forms.TextBox txtParamDefOutFile;
         private System.Windows.Forms.Button btnWriteDefValList;
+        private System.Windows.Forms.Button btnVFDReset;
     }
 }
 

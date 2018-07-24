@@ -104,7 +104,7 @@
             this.Controls.Add(this.prgActionStatus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProgReport";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Read Progress";
             this.TopMost = true;
             this.ResumeLayout(false);
