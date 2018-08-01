@@ -416,13 +416,14 @@ namespace V1000_Def_Param_Gen
 
             ProgressArgs.ListWrite_Total_Units = V1000_Vals.Count;
 
-            xlWorksheet.Cells[1, 1].Value2 = "REGISTER ADDRESS";
-            xlWorksheet.Cells[1, 2].Value2 = "PARAMETER NUMBER";
-            xlWorksheet.Cells[1, 3].Value2 = "PARAMETER NAME";
-            xlWorksheet.Cells[1, 4].Value2 = "DEFAULT VALUE";
-            xlWorksheet.Cells[1, 5].Value2 = "MULTIPLIER";
-            xlWorksheet.Cells[1, 6].Value2 = "BASE";
-            xlWorksheet.Cells[1, 7].Value2 = "UNITS";
+            xlWorksheet.Cells[1, 1].Value2 = "IDX";
+            xlWorksheet.Cells[1, 2].Value2 = "REG_ADDR";
+            xlWorksheet.Cells[1, 3].Value2 = "PARAM_NUM";
+            xlWorksheet.Cells[1, 4].Value2 = "PARAM_NAME";
+            xlWorksheet.Cells[1, 5].Value2 = "DEF_VAL";
+            xlWorksheet.Cells[1, 6].Value2 = "MULTIPLIER";
+            xlWorksheet.Cells[1, 7].Value2 = "NUM_BASE";
+            xlWorksheet.Cells[1, 8].Value2 = "UNITS";
 
             for (int i = 0; i < V1000_Vals.Count; i++)
             {
@@ -432,13 +433,15 @@ namespace V1000_Def_Param_Gen
                     bwrkWriteDefValFile.ReportProgress(0);
                     return;
                 }
-                xlWorksheet.Cells[i + 2, 1].Value2 = V1000_Vals[i].RegAddress;
-                xlWorksheet.Cells[i + 2, 2].Value2 = V1000_Vals[i].ParamNum;
-                xlWorksheet.Cells[i + 2, 3].Value2 = V1000_Vals[i].ParamName;
-                xlWorksheet.Cells[i + 2, 4].Value2 = V1000_Vals[i].ParamVal;
-                xlWorksheet.Cells[i + 2, 5].Value2 = V1000_Vals[i].Multiplier;
-                xlWorksheet.Cells[i + 2, 6].Value2 = V1000_Vals[i].NumBase;
-                xlWorksheet.Cells[i + 2, 7].Value2 = V1000_Vals[i].Units;
+
+                xlWorksheet.Cells[i + 2, 1].Value2 = i;
+                xlWorksheet.Cells[i + 2, 2].Value2 = V1000_Vals[i].RegAddress;
+                xlWorksheet.Cells[i + 2, 3].Value2 = V1000_Vals[i].ParamNum;
+                xlWorksheet.Cells[i + 2, 4].Value2 = V1000_Vals[i].ParamName;
+                xlWorksheet.Cells[i + 2, 5].Value2 = V1000_Vals[i].ParamVal;
+                xlWorksheet.Cells[i + 2, 6].Value2 = V1000_Vals[i].Multiplier;
+                xlWorksheet.Cells[i + 2, 7].Value2 = V1000_Vals[i].NumBase;
+                xlWorksheet.Cells[i + 2, 8].Value2 = V1000_Vals[i].Units;
 
                 ProgressArgs.ListWrite_Unit = i + 1;
                 ProgressArgs.ListWrite_Progress = (byte)(((float)i / ProgressArgs.ListWrite_Total_Units) * 100);
